@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-gold: #d4af37;
+  --color-gold-light: #f4e1a1;
+  --color-slate-luxury: #f8faf9;
+  --color-primary: #0a0a0a;
+  --color-secondary: #d4af37;
+  --color-border: rgba(0, 0, 0, 0.05);
+
+  --font-sans: "Outfit", "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  html, html * {
+    cursor: none !important;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    font-family: "Outfit", "Inter", sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: none !important;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Luxury Utilities - Light Edition */
+@utility glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+@utility gold-text {
+  background: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #b8860b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility section-padding {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+@utility container-luxury {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@utility premium-card-light {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 0.5rem;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card-light:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.08);
+  border-color: #d4af37;
+}
+
+/* Smooth Scrollbar for Light Mode */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Custom Cursor Placeholder */
+.luxury-cursor {
+    width: 10px;
+    height: 10px;
+    background: #d4af37;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease-out;
+}
+
+/* Ken Burns — cinematic slow zoom on static images */
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  50%  { transform: scale(1.03) translate(-0.5%, -0.5%); }
+  100% { transform: scale(1.05) translate(0.5%, 0.2%); }
+}
+
+.ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
