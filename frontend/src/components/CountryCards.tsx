@@ -74,9 +74,8 @@ const CountryCards = () => {
                     playsInline
                     className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-110"
                     poster={exp.image}
-                  >
-                    <source src={exp.video} type="video/mp4" />
-                  </video>
+                    src={exp.video}
+                  />
                 ) : (
                   <img
                     src={exp.image}

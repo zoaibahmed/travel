@@ -60,26 +60,6 @@ export default function Home() {
         };
         fetchTours();
         
-        // Performance: Use a single observer for all videos
-        const videoObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    const video = entry.target as HTMLVideoElement;
-                    if (entry.isIntersecting) {
-                        video.play().catch(() => {});
-                    } else {
-                        video.pause();
-                    }
-                });
-            },
-            { threshold: 0.05 } // Lower threshold for earlier activation
-        );
-
-        document.querySelectorAll("video").forEach(v => {
-            v.playbackRate = 0.8; 
-            videoObserver.observe(v);
-        });
-
         // Track cinematic video section for navbar transparency
         const sectionObserver = new IntersectionObserver(
             ([entry]) => {
@@ -93,7 +73,6 @@ export default function Home() {
         }
 
         return () => {
-            videoObserver.disconnect();
             sectionObserver.disconnect();
         };
     }, []);
@@ -221,9 +200,8 @@ export default function Home() {
                     loop
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover z-10"
-                >
-                    <source src="/videos/main-cinematic.mp4" type="video/mp4" />
-                </video>
+                    src="/videos/main-cinematic.mp4"
+                />
 
                 {/* Bottom smooth fade transition to avoid 'half video' look */}
                 <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-white to-transparent z-[15] pointer-events-none" />
