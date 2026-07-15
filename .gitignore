@@ -35,7 +35,5 @@ yarn-error.log*
 /.idea
 /.vscode
 
-# Ignore all mp4 video files and php phar files
-**/*.mp4
-*.mp4
+# Ignore php phar files
 /composer.phar
